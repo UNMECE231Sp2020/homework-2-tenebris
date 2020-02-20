@@ -92,7 +92,9 @@ std::ostream& operator<<(std::ostream &out, const Complex &c) {
 	} else {
 		out << c.real << " + " << c.imag << "i";
 	}
+	return out;
 }
 std::istream& operator>>(std::istream &in, Complex &c) {
 	in >> c.real >> c.imag;
+	return in;
 }
