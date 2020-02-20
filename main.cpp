@@ -1,5 +1,5 @@
 #include <iostream>
-#include "functions.cpp"
+#include "header.hpp"
 
 int main() {
 	Complex c1;
