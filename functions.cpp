@@ -19,7 +19,7 @@ Complex::Complex(const Complex &c) {
 	imag = c.imag;
 }
 void Complex::print() {
-	std::cout << this << std::endl;
+	std::cout << *this << std::endl;
 }
 Complex Complex::add(Complex c) {
 	Complex temp;
