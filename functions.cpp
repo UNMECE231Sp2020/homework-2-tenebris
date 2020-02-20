@@ -35,17 +35,20 @@ Complex Complex::sub(Complex c) {
 }
 Complex Complex::mult(Complex c) {
 	Complex temp;
-	temp.real = real * c.real;
-	temp.imag = imag * c.imag;
+	temp.real = (real * c.real) - (imag * c.imag);
+	temp.imag = (real * c.imag) + (imag * c.real);
 	return temp;
 }
 Complex Complex::div(Complex c) {
-	if((c.real == 0) || (c.imag == 0)) {
+	if((c.real == 0) && (c.imag == 0)) {
 		std::cout << "n o" << std::endl;
 	}
 	Complex temp;
-	temp.real = real / c.real;
-	temp.imag = imag / c.imag;
+	double div = (c.real * c.real) + (c.imag * c.imag);
+	temp.real = (real * c.real) + (imag * c.imag);
+	temp.imag = (real * c.imag) - (imag * c.real);
+	temp.real /= div;
+	temp.imag /= div;
 	return temp;
 }
 Complex Complex::con() {
@@ -57,27 +60,19 @@ double Complex::magnitude() {
 	return sqrt((real * real) + (imag * imag));
 }
 double Complex::phase() {
-	return atan(imag / real);
+	return atan(imag / real) * 180 / M_PI;
 }
 Complex Complex::operator+(Complex c) {
-	Complex temp = *this;
-	temp.add(c);
-	return temp;
+	return add(c);
 }
 Complex Complex::operator-(Complex c) {
-	Complex temp = *this;
-	temp.sub(c);
-	return temp;
+	return sub(c);
 }
 Complex Complex::operator*(Complex c) {
-	Complex temp = *this;
-	temp.mult(c);
-	return temp;
+	return mult(c);
 }
 Complex Complex::operator/(Complex c) {
-	Complex temp = *this;
-	temp.div(c);
-	return temp;
+	return div(c);
 }
 Complex Complex::operator=(Complex c) {
 	real = c.real;
@@ -85,10 +80,9 @@ Complex Complex::operator=(Complex c) {
 	return *this;
 }
 std::ostream& operator<<(std::ostream &out, const Complex &c) {
-	double temp;
 	if(c.imag < 0) {
-		temp = -1 * c.imag;
-		out << c.real << " - " << c.imag << "i";
+		double temp = -1 * c.imag;
+		out << c.real << " - " << temp << "i";
 	} else {
 		out << c.real << " + " << c.imag << "i";
 	}
