@@ -87,9 +87,9 @@ Complex Complex::operator=(Complex comp) {
 std::ostream& operator<<(std::ostream &out, const Complex &comp) {
 	if(comp.imag < 0) {
 		double temp = -1 * comp.imag;
-		out << comp.real << " - " << temp << "i";
+		out << comp.real << " - " << temp << "j";
 	} else {
-		out << comp.real << " + " << comp.imag << "i";
+		out << comp.real << " + " << comp.imag << "j";
 	}
 	return out;
 }
