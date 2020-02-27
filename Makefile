@@ -1,5 +1,5 @@
 all: main.o fns.o
-	g++ main.o statistics.o -o run
+	g++ main.o fns.o -o run
 main.o: main.cpp header.hpp
 	g++ -c main.cpp
 fns.o: functions.cpp header.hpp
