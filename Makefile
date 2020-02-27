@@ -5,5 +5,5 @@ main.o: main.cpp header.hpp
 fns.o: functions.cpp header.hpp
 	g++ -c functions.cpp -o fns.o
 clean:
-	*.o
+	rm *.o
 	rm run
