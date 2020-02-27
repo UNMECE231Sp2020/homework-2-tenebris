@@ -66,7 +66,7 @@ Complex Complex::operator+(Complex c) {
 	return add(c);
 }
 Complex Complex::operator-(Complex c) {
-	return sub(c);
+	return c.sub(*this);
 }
 Complex Complex::operator*(Complex c) {
 	return mult(c);
