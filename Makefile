@@ -3,7 +3,7 @@ all: main.o fns.o
 main.o: main.cpp header.hpp
 	g++ -c main.cpp
 fns.o: functions.cpp header.hpp
-	g++ -c functions.cpp
+	g++ -c functions.cpp -o fns.o
 clean:
 	*.o
 	rm run
